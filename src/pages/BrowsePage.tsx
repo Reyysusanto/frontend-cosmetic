@@ -1,3 +1,5 @@
+import { Swiper, SwiperSlide } from "swiper/react"
+
 export const BrowsePage = () => {
     return (
         <main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-white pb-[141px]">
@@ -73,41 +75,48 @@ export const BrowsePage = () => {
             </section>
             <section id="Hero">
                 <div id="HeroSlider" className="swiper w-full overflow-x-hidden">
-                <div className="swiper-wrapper">
-                    <div className="swiper-slide !w-fit">
-                    <a href="">
-                        <div className="flex h-[190px] w-[320px] items-center justify-center overflow-hidden rounded-3xl">
-                        <img
-                            src="/images/thumbnails/girls-day.png"
-                            alt="image"
-                            className="h-full w-full object-cover"
-                        />
-                        </div>
-                    </a>
-                    </div>
-                    <div className="swiper-slide !w-fit">
-                    <a href="">
-                        <div className="flex h-[190px] w-[320px] items-center justify-center overflow-hidden rounded-3xl">
-                        <img
-                            src="/images/thumbnails/beuty-tips.png"
-                            alt="image"
-                            className="h-full w-full object-cover"
-                        />
-                        </div>
-                    </a>
-                    </div>
-                    <div className="swiper-slide !w-fit">
-                    <a href="">
-                        <div className="flex h-[190px] w-[320px] items-center justify-center overflow-hidden rounded-3xl">
-                        <img
-                            src="/images/thumbnails/discount-for.png"
-                            alt="image"
-                            className="h-full w-full object-cover"
-                        />
-                        </div>
-                    </a>
-                    </div>
-                </div>
+                    <Swiper
+                        className="swiper-wrapper"
+                        direction="horizontal"
+                        spaceBetween={16}
+                        slidesPerView="auto"
+                        slidesOffsetAfter={20}
+                        slidesOffsetBefore={20}
+                    >
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="">
+                                <div className="flex h-[190px] w-[320px] items-center justify-center overflow-hidden rounded-3xl">
+                                <img
+                                    src="/images/thumbnails/girls-day.png"
+                                    alt="image"
+                                    className="h-full w-full object-cover"
+                                />
+                                </div>
+                            </a>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="">
+                                <div className="flex h-[190px] w-[320px] items-center justify-center overflow-hidden rounded-3xl">
+                                <img
+                                    src="/images/thumbnails/beuty-tips.png"
+                                    alt="image"
+                                    className="h-full w-full object-cover"
+                                />
+                                </div>
+                            </a>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="">
+                                <div className="flex h-[190px] w-[320px] items-center justify-center overflow-hidden rounded-3xl">
+                                <img
+                                    src="/images/thumbnails/discount-for.png"
+                                    alt="image"
+                                    className="h-full w-full object-cover"
+                                />
+                                </div>
+                            </a>
+                        </SwiperSlide>
+                    </Swiper>                
                 </div>
             </section>
             <section id="TopCategories">
@@ -238,152 +247,159 @@ export const BrowsePage = () => {
                     id="PopularChoicesSlider"
                     className="swiper w-full overflow-x-hidden"
                 >
-                    <div className="swiper-wrapper">
-                    <div className="swiper-slide !w-fit">
-                        <a href="details.html">
-                        <div className="relative flex h-[276px] w-[222px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
-                            <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
-                            <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
-                                <img
-                                src="/images/icons/star.svg"
-                                alt="icon"
-                                className="size-4 shrink-0"
-                                />
-                                <p className="text-xs font-bold leading-[18px] text-white">
-                                4.8
-                                </p>
-                            </span>
-                            <div className="mx-auto flex h-[130px] w-full items-center justify-center">
-                                <img
-                                src="/images/thumbnails/coverblur.png"
-                                alt="image"
-                                className="h-full w-full object-contain"
-                                />
+                    <Swiper
+                        className="swiper-wrapper"
+                        direction="horizontal"
+                        spaceBetween={16}
+                        slidesPerView="auto"
+                        slidesOffsetAfter={20}
+                        slidesOffsetBefore={20}
+                    >
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="details.html">
+                            <div className="relative flex h-[276px] w-[222px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
+                                <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
+                                <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
+                                    <img
+                                    src="/images/icons/star.svg"
+                                    alt="icon"
+                                    className="size-4 shrink-0"
+                                    />
+                                    <p className="text-xs font-bold leading-[18px] text-white">
+                                    4.8
+                                    </p>
+                                </span>
+                                <div className="mx-auto flex h-[130px] w-full items-center justify-center">
+                                    <img
+                                    src="/images/thumbnails/coverblur.png"
+                                    alt="image"
+                                    className="h-full w-full object-contain"
+                                    />
+                                </div>
+                                <div className="des flex flex-col gap-1">
+                                    <h4 className="text-xs leading-[18px] text-cosmetics-purple">
+                                    SOMETHINC
+                                    </h4>
+                                    <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
+                                    CoverBlur Powder Foundation Natural
+                                    </h3>
+                                    <strong className="font-semibold text-cosmetics-pink">
+                                    Rp 8.540.000
+                                    </strong>
+                                </div>
+                                </div>
                             </div>
-                            <div className="des flex flex-col gap-1">
-                                <h4 className="text-xs leading-[18px] text-cosmetics-purple">
-                                SOMETHINC
-                                </h4>
-                                <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
-                                CoverBlur Powder Foundation Natural
-                                </h3>
-                                <strong className="font-semibold text-cosmetics-pink">
-                                Rp 8.540.000
-                                </strong>
+                            </a>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="details.html">
+                            <div className="relative flex h-[276px] w-[222px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
+                                <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
+                                <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
+                                    <img
+                                    src="/images/icons/star.svg"
+                                    alt="icon"
+                                    className="size-4 shrink-0"
+                                    />
+                                    <p className="text-xs font-bold leading-[18px] text-white">
+                                    4.8
+                                    </p>
+                                </span>
+                                <div className="mx-auto flex h-[130px] w-full items-center justify-center">
+                                    <img
+                                    src="/images/thumbnails/lipstick.png"
+                                    alt="image"
+                                    className="h-full w-full object-contain"
+                                    />
+                                </div>
+                                <div className="des flex flex-col gap-1">
+                                    <h4 className="text-xs leading-[18px] text-cosmetics-purple">
+                                    MAYBELLINA
+                                    </h4>
+                                    <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
+                                    Lipstick Golden Ultra Alami Lebih Basah
+                                    </h3>
+                                    <strong className="font-semibold text-cosmetics-pink">
+                                    Rp 8.540.000
+                                    </strong>
+                                </div>
+                                </div>
                             </div>
+                            </a>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="details.html">
+                            <div className="relative flex h-[276px] w-[222px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
+                                <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
+                                <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
+                                    <img
+                                    src="/images/icons/star.svg"
+                                    alt="icon"
+                                    className="size-4 shrink-0"
+                                    />
+                                    <p className="text-xs font-bold leading-[18px] text-white">
+                                    4.8
+                                    </p>
+                                </span>
+                                <div className="mx-auto flex h-[130px] w-full items-center justify-center overflow-hidden">
+                                    <img
+                                    src="/images/thumbnails/deodorant.png"
+                                    alt="image"
+                                    className="h-full w-full object-contain"
+                                    />
+                                </div>
+                                <div className="des flex flex-col gap-1">
+                                    <h4 className="text-xs leading-[18px] text-cosmetics-purple">
+                                    NIVEA
+                                    </h4>
+                                    <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
+                                    Deodorant Alami Anti Lembab Seharian
+                                    </h3>
+                                    <strong className="font-semibold text-cosmetics-pink">
+                                    Rp 8.540.000
+                                    </strong>
+                                </div>
+                                </div>
                             </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div className="swiper-slide !w-fit">
-                        <a href="details.html">
-                        <div className="relative flex h-[276px] w-[222px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
-                            <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
-                            <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
-                                <img
-                                src="/images/icons/star.svg"
-                                alt="icon"
-                                className="size-4 shrink-0"
-                                />
-                                <p className="text-xs font-bold leading-[18px] text-white">
-                                4.8
-                                </p>
-                            </span>
-                            <div className="mx-auto flex h-[130px] w-full items-center justify-center">
-                                <img
-                                src="/images/thumbnails/lipstick.png"
-                                alt="image"
-                                className="h-full w-full object-contain"
-                                />
+                            </a>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide !w-fit">
+                            <a href="details.html">
+                            <div className="relative flex h-[276px] w-[220px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
+                                <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
+                                <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
+                                    <img
+                                    src="/images/icons/star.svg"
+                                    alt="icon"
+                                    className="size-4 shrink-0"
+                                    />
+                                    <p className="text-xs font-bold leading-[18px] text-white">
+                                    4.8
+                                    </p>
+                                </span>
+                                <div className="mx-auto flex h-[130px] w-full items-center justify-center overflow-hidden">
+                                    <img
+                                    src="/images/thumbnails/mascara.png"
+                                    alt="image"
+                                    className="h-full w-full object-contain"
+                                    />
+                                </div>
+                                <div className="des flex flex-col gap-1">
+                                    <h4 className="text-xs leading-[18px] text-cosmetics-purple">
+                                    MAYBELLINA
+                                    </h4>
+                                    <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
+                                    Mascara Pinky Pilihan Arti Terkenal Cantik
+                                    </h3>
+                                    <strong className="font-semibold text-cosmetics-pink">
+                                    Rp 8.540.000
+                                    </strong>
+                                </div>
+                                </div>
                             </div>
-                            <div className="des flex flex-col gap-1">
-                                <h4 className="text-xs leading-[18px] text-cosmetics-purple">
-                                MAYBELLINA
-                                </h4>
-                                <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
-                                Lipstick Golden Ultra Alami Lebih Basah
-                                </h3>
-                                <strong className="font-semibold text-cosmetics-pink">
-                                Rp 8.540.000
-                                </strong>
-                            </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div className="swiper-slide !w-fit">
-                        <a href="details.html">
-                        <div className="relative flex h-[276px] w-[222px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
-                            <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
-                            <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
-                                <img
-                                src="/images/icons/star.svg"
-                                alt="icon"
-                                className="size-4 shrink-0"
-                                />
-                                <p className="text-xs font-bold leading-[18px] text-white">
-                                4.8
-                                </p>
-                            </span>
-                            <div className="mx-auto flex h-[130px] w-full items-center justify-center overflow-hidden">
-                                <img
-                                src="/images/thumbnails/deodorant.png"
-                                alt="image"
-                                className="h-full w-full object-contain"
-                                />
-                            </div>
-                            <div className="des flex flex-col gap-1">
-                                <h4 className="text-xs leading-[18px] text-cosmetics-purple">
-                                NIVEA
-                                </h4>
-                                <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
-                                Deodorant Alami Anti Lembab Seharian
-                                </h3>
-                                <strong className="font-semibold text-cosmetics-pink">
-                                Rp 8.540.000
-                                </strong>
-                            </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div className="swiper-slide !w-fit">
-                        <a href="details.html">
-                        <div className="relative flex h-[276px] w-[220px] items-center justify-center rounded-3xl transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
-                            <div className="flex h-full flex-col justify-center gap-4 rounded-[23px] bg-white px-4 hover:rounded-[22px]">
-                            <span className="absolute right-[14px] top-[14px] flex items-center justify-center gap-[2px] rounded-full bg-cosmetics-purple px-2 py-[6px]">
-                                <img
-                                src="/images/icons/star.svg"
-                                alt="icon"
-                                className="size-4 shrink-0"
-                                />
-                                <p className="text-xs font-bold leading-[18px] text-white">
-                                4.8
-                                </p>
-                            </span>
-                            <div className="mx-auto flex h-[130px] w-full items-center justify-center overflow-hidden">
-                                <img
-                                src="/images/thumbnails/mascara.png"
-                                alt="image"
-                                className="h-full w-full object-contain"
-                                />
-                            </div>
-                            <div className="des flex flex-col gap-1">
-                                <h4 className="text-xs leading-[18px] text-cosmetics-purple">
-                                MAYBELLINA
-                                </h4>
-                                <h3 className="line-clamp-2 h-[48px] w-full font-semibold">
-                                Mascara Pinky Pilihan Arti Terkenal Cantik
-                                </h3>
-                                <strong className="font-semibold text-cosmetics-pink">
-                                Rp 8.540.000
-                                </strong>
-                            </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    </div>
+                            </a>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
                 </div>
             </section>
