@@ -1,6 +1,84 @@
+import { useEffect, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { Category, Cosmetic } from "../types/type"
+import apiClient from "../services/apiServices"
+
+const fetchCategories = async () => {
+    const response = await apiClient.get("/categories")
+    return response.data.data
+}
+
+const fetchPopularCosmetics = async () => {
+    const response = await apiClient.get("/cosmetics?limit=2&is_popular=1")
+    return response.data.data
+}
+
+const fetchCosmetics = async () => {
+    const response = await apiClient.get("/cosmetics?limit=3")
+    return response.data.data
+}
 
 export const BrowsePage = () => {
+
+    const [categories, setCategories] = useState<Category[]>([])
+    const [popularCosmetics, setPopularCosmetics] = useState<Cosmetic[]>([])
+    const [allCosmetics, setAllCosmetics] = useState<Cosmetic[]>([])
+
+    const [loadingCategories, setLoadingCategories] = useState(true)
+    const [loadingPopularCosmetics, setLoadingPopularCosmetics] = useState(true)
+    const [loadingAllCosmetics, setLoadingAllCosmetics] = useState(true)
+
+    const [error, setEror] = useState<string | null>(null)
+
+    useEffect(() => {
+        const fetchCategoriesData = async () => {
+            try{
+                const categoriesData = await fetchCategories()
+                setCategories(categoriesData)
+            } catch {
+                setEror("Failed to load categories")
+            } finally {
+                setLoadingCategories(false)
+            }
+        }
+
+        const fetchPopularCosmeticsData = async () => {
+            try{
+                const popularCosmeticsData = await fetchPopularCosmetics()
+                setCategories(popularCosmeticsData)
+            } catch {
+                setEror("Failed to load categories")
+            } finally {
+                setLoadingPopularCosmetics(false)
+            }
+        }
+
+        const fetchCosmeticsData = async () => {
+            try{
+                const cosmeticsData = await fetchCosmetics()
+                setCategories(cosmeticsData)
+            } catch {
+                setEror("Failed to load categories")
+            } finally {
+                setLoadingAllCosmetics(false)
+            }
+        }
+
+        fetchCategoriesData()
+        fetchPopularCosmeticsData()
+        fetchCosmeticsData()
+    }, [])
+
+    if(loadingAllCosmetics && loadingCategories && loadingPopularCosmetics) {
+        return <p>Loading categories and cosmetics...</p>
+    }
+
+    if(error) {
+        return <p>Error loading data: {error}</p>
+    }
+
+    const BASE_URL = import.meta.env.VITE_REACT_API_STORAGE_URL
+
     return (
         <main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-white pb-[141px]">
             <section id="Info">
