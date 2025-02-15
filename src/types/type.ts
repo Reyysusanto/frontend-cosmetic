@@ -24,6 +24,7 @@ export interface Cosmetic {
     slug: string,
     is_popular: boolean,
     category: Category,
+    brand: Brand,
     thumbnail: string,
     benefits: Benefit[],
     photos: Photo[],
