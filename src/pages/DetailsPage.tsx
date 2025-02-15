@@ -97,57 +97,48 @@ export const DetailsPage = () => {
             <div className="flex w-full flex-col items-center gap-[30px] rounded-[30px] bg-white px-[24.5px] py-[30px]">
               <div className="flex size-[250px] shrink-0 items-center justify-center">
                 <img
-                  src={`${BASE_URL}/${cosmetic.thumbnail}`}
+                  src={`${BASE_URL}/${mainImage}`}
                   alt="image"
                   className="h-full w-full object-contain"
                 />
               </div>
-              {/* <div className="flex items-center justify-center gap-[4px]">
-                <div className="h-[72px] w-[72px] rounded-full bg-cosmetics-gradient-purple-pink p-[2px] transition-all duration-300">
+
+              <div className="flex items-center justify-center gap-[4px]">
+                <div className={`h-[72px] w-[72px] rounded-full 
+                    ${mainImage === cosmetic.thumbnail ? "bg-cosmetics-gradient-purple-pink" : ""} 
+                    p-[2px] transition-all duration-300`}>
                   <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
                     <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
                       <img
-                        src="/images/thumbnails/thumb1.png"
+                        src={`${BASE_URL}/${cosmetic.thumbnail}`}
                         alt="image"
                         className="size-[45px]"
+                        onClick={() => setMainImage(cosmetic.thumbnail)}
                       />
                     </div>
                   </div>
                 </div>
-                <div className="h-[72px] w-[72px] rounded-full bg-cosmetics-gradient-purple-pink p-[2px] transition-all duration-300">
-                  <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
-                    <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
-                      <img
-                        src="/images/thumbnails/thumb2.png"
-                        alt="image"
-                        className="size-[45px]"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="h-[72px] w-[72px] rounded-full bg-cosmetics-gradient-purple-pink p-[2px] transition-all duration-300">
-                  <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
-                    <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
-                      <img
-                        src="/images/thumbnails/thumb3.png"
-                        alt="image"
-                        className="size-[45px]"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="h-[72px] w-[72px] rounded-full bg-cosmetics-gradient-purple-pink p-[2px] transition-all duration-300">
-                  <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
-                    <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
-                      <img
-                        src="/images/thumbnails/thumb4.png"
-                        alt="image"
-                        className="size-[45px]"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+
+                {cosmetic.photos.length > 0 && (
+                    cosmetic.photos.map((photo) => (
+                        <div className={`h-[72px] w-[72px] rounded-full 
+                            ${mainImage === photo.photo ? "bg-cosmetics-gradient-purple-pink" : ""}  
+                            p-[2px] transition-all duration-300`}>
+                        <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
+                            <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
+                            <img
+                                src={`${BASE_URL}/${photo.photo}`}
+                                alt="image"
+                                className="size-[45px]"
+                                onClick={() => setMainImage(photo.photo)}
+                            />
+                            </div>
+                        </div>
+                        </div>
+                    ))
+                )}
+
+              </div>
             </div>
           </section>
 
