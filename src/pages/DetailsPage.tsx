@@ -35,6 +35,30 @@ export const DetailsPage = () => {
       });
   }, [slug]);
 
+  const handelAddToCart = () => {
+    if(cosmetic) {
+      setIsAdding(true)
+      const itemExists = cart.find((item) => item.cosmetic_id === cosmetic.id)
+      if(itemExists) {
+        alert("Produk sudah tersedia di keranjang")
+        setIsAdding(false)
+      } else{
+        const newCartItem: CartItem = {
+          cosmetic_id: cosmetic.id,
+          slug: cosmetic.slug,
+          quantity: 1,
+        }
+        const updateCart = [...cart, newCartItem]
+        setCart(updateCart)
+
+        localStorage.setItem("cart", JSON.stringify(updateCart))
+
+        alert("Jasa berhasil ditambahkan ke cart")
+        setIsAdding(false)
+      }
+    }
+  }
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -79,7 +103,7 @@ export const DetailsPage = () => {
                 You deserve beauty life
               </p>
             </div>
-            <a href="my-cart.html">
+            <Link to={`/cart`}>
               <div className="flex size-[44px] shrink-0 items-center justify-center rounded-full border border-cosmetics-greylight">
                 <img
                   src="/images/icons/cart.svg"
@@ -87,11 +111,10 @@ export const DetailsPage = () => {
                   className="size-5 shrink-0"
                 />
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
-      <form action="my-cart.html">
         <div className="flex flex-col gap-5">
           <section id="HeroSlider" className="px-5">
             <div className="flex w-full flex-col items-center gap-[30px] rounded-[30px] bg-white px-[24.5px] py-[30px]">
@@ -121,7 +144,7 @@ export const DetailsPage = () => {
 
                 {cosmetic.photos.length > 0 && (
                     cosmetic.photos.map((photo) => (
-                        <div className={`h-[72px] w-[72px] rounded-full 
+                        <div key={photo.id} className={`h-[72px] w-[72px] rounded-full 
                             ${mainImage === photo.photo ? "bg-cosmetics-gradient-purple-pink" : ""}  
                             p-[2px] transition-all duration-300`}>
                         <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
@@ -269,7 +292,7 @@ export const DetailsPage = () => {
 
                 {cosmetic.testimonials.length > 0 &&
                   cosmetic.testimonials.map((testimonial) => (
-                    <SwiperSlide className="swiper-slide !w-fit">
+                    <SwiperSlide key={testimonial.id} className="swiper-slide !w-fit">
                       <div className="relative flex w-[330px] flex-col gap-4 rounded-3xl bg-white p-[20px]">
                         <img
                           src="/images/icons/coma.svg"
@@ -337,7 +360,7 @@ export const DetailsPage = () => {
 
               {cosmetic.benefits.length > 0 ? (
                 cosmetic.benefits.map((benefit, index) => (
-                  <div className="flex items-center gap-3">
+                  <div key={benefit.id} className="flex items-center gap-3">
                     <div className="flex items-center gap-3">
                       <img
                         src="/images/icons/benefit.svg"
@@ -368,10 +391,13 @@ export const DetailsPage = () => {
               </p>
             </div>
             <button
-              type="submit"
+              onClick={handelAddToCart}
+              disabled={isAdding}
               className="flex w-full items-center justify-center gap-[10px] rounded-full bg-cosmetics-gradient-pink-white py-[14px] transition-all duration-300 hover:shadow-[0px_6px_22px_0px_#FF4D9E82]"
             >
-              <p className="font-semibold text-white">Add to Cart</p>
+              <p className="font-semibold text-white">
+                {isAdding ? "Adding..." : "Add to cart"}
+              </p>
               <img
                 src="/images/icons/cart-white.svg"
                 alt="icon"
@@ -380,7 +406,6 @@ export const DetailsPage = () => {
             </button>
           </div>
         </nav>
-      </form>
     </main>
   );
 };

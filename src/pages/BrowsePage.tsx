@@ -124,13 +124,13 @@ export const BrowsePage = () => {
       </section>
       <section id="Company">
         <div className="flex justify-between px-5">
-          <a href="">
+          <Link to={`/`}>
             <img
               src="/images/logos/shayna.svg"
               alt="icon"
               className="h-[48px] w-[113px] shrink-0"
             />
-          </a>
+          </Link>
           <div className="flex items-center gap-[10px]">
             <a
               href=""
@@ -144,8 +144,8 @@ export const BrowsePage = () => {
                 />
               </div>
             </a>
-            <a
-              href="my-cart.html"
+            <Link
+              to={`/cart`}
               className="flex size-[44px] items-center justify-center rounded-full bg-cosmetics-greylight p-px transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]"
             >
               <div className="flex h-full w-full shrink-0 items-center justify-center rounded-full bg-white">
@@ -155,7 +155,7 @@ export const BrowsePage = () => {
                   className="size-5 shrink-0"
                 />
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
